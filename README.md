@@ -4,9 +4,11 @@
 
 L’objectif est de contrôler l’ouverture et fermeture d’une porte grâce à la proximité d’un appareil BLE et de partager des données par Wifi entre esp32 et esp8266.
 
+Vidéo du projet : <https://www.tiktok.com/@__hakii__/video/7284935015522127137>
+
 # I- **Conception électronique**
 
-## a) esp32 BLE
+## a) ESP32 BLE
 
 Le Bluetooth Low Energy est une technologie de réseau personnel sans fil utilisée pour transmettre des données sur de courtes distances. Comme son nom l'indique, il est conçu pour une faible consommation d'énergie et un faible coût, tout en conservant une portée de communication similaire au Classic Bluetooth.
 
@@ -48,7 +50,7 @@ Ainsi grâce au RSSI, nous pouvons déterminer la proximité ou non de l’appar
 
 Comme mentionné, l’actionneur et l’esp32 ne seront pas situés à côté. Il sera donc nécessaire à l’esp32 d’envoyer des données à une carte esp8266 qui, elle, interagira avec le vérin. Pour les faire communiquer, nous utilisons le protocole Esp-Now.
 
-**Esp32 : sender**
+**ESP32 : sender**
 
 L’esp32 va être chargé d’envoyer la donnée suivante : les écouteurs sont à proximité de l’esp32 oui/non.
 
@@ -60,7 +62,7 @@ Nous mettons également en place une structure `peer_info`pour stocker les infor
 
 Enfin dans le *loop*, nous envoyons dans la fonction `esp_now_send()`,  l’adresse MAC de l’appareil avec lequel on cherche à communiquer, l’adresse de la structure contenant nos données et sa taille.
 
-**Esp8266 : receiver :**
+**ESP8266 : receiver :**
 
 On créé une structure.
 
